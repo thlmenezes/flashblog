@@ -7,12 +7,29 @@
   Example:
     pandoc -s slides.md --css slides.css --section-divs
 */
-@import url('https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --content-size: 5vh;
+  --title-size: 8vh;
+}
+
+@media screen and (max-width: 667px) {
+  :root {
+    --content-size: 5vw;
+    --title-size: 8vw;
+  }
+
+  h1 > img {
+    /*Custom Emojis */
+    max-width: 4vw;
+  }
+}
 
 html {
   overflow: hidden;
-  font-family: serif;
-  font-size: 2.6em;
+  font-family: sans-serif;
+  font-size: var(--content-size);
 }
 
 body {
@@ -25,47 +42,59 @@ body {
 
 html,
 body {
-  background-color: #f3f2ee;
-  font-family: 'PT Serif', Times;
-  color: #1f0909;
+  background-color: #23272a;
+  font-family: 'Noto Sans', sans-serif;
+  color: #99aab5;
 }
 
 body > section {
+  /* slides with full width */
   width: 100vw;
-  box-sizing: border-box;
-  scroll-snap-align: start;
   flex-shrink: 0;
+  /* Scroll with 1 click */
+  scroll-snap-align: start;
+  box-sizing: border-box;
+  /* slide inner style */
   padding: 3em;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 h1 {
+  font-size: var(--title-size);
+  color: #7289da;
   margin-top: 0;
   margin-bottom: 0;
 }
 
-img {
-  min-width: 800px;
-  max-width: 100%;
-  max-height: 500px;
-}
-
-p > a > img,
-figure > img {
-  min-width: 0px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+h1 > img {
+  /* Custom Emojis */
+  max-width: 6vh;
 }
 
 blockquote {
-  /* font-style: italic; */
-  color: #656565;
+  width: 40vw;
+  font-style: italic;
+  color: #808080;
   margin: 0.1em 0;
   padding-left: 1em;
   border-radius: 20px;
   border-left: 0.3em #bababa solid;
+}
+
+img {
+  margin: 0;
+  max-height: 50vh;
+}
+
+p {
+  margin: 0;
+}
+
+p > img {
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 ul {
@@ -73,31 +102,6 @@ ul {
 }
 
 li {
-  padding: 0.1em; /* Espaçar elementos entre si */
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  margin-top: 1em;
-  margin-bottom: 1.5em;
-  /* font-size: 0.7em; */
-}
-thead {
-  background-color: #dadada;
-}
-th {
-  text-align: left;
-}
-thead th,
-tfoot th {
-  padding: 0.25em 1em 0.25em 1em;
-  text-transform: uppercase;
-}
-td {
-  vertical-align: top;
-  padding: 0.25em 1em 0.25em 1em;
-}
-tr:nth-child(even) {
-  background: #e8e7e7;
+  padding: 0.1em; /*  Espaçar elementos entre si */
+  max-width: 50vw;
 }
