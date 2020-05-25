@@ -45,6 +45,7 @@ body {
   background-color: #23272a;
   font-family: 'Noto Sans', sans-serif;
   color: #99aab5;
+  scrollbar-color: #23272a #23272a;
 }
 
 body > section {
