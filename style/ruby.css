@@ -1,0 +1,106 @@
+/*
+  Pure markdown + css presentation template
+  Usage:
+    1 - write your markdown
+    2 - compile using some tool that wraps sections in <section> tags
+    3 - include this css on the file
+  Example:
+    pandoc -s slides.md --css slides.css --section-divs
+*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --content-size: 5vh;
+  --title-size: 8vh;
+}
+
+@media screen and (max-width: 667px) {
+  :root {
+    --content-size: 5vw;
+    --title-size: 8vw;
+  }
+
+  h1 > img {
+    /*Custom Emojis */
+    max-width: 4vw;
+  }
+}
+
+html {
+  overflow: hidden;
+  font-family: sans-serif;
+  font-size: var(--content-size);
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  scroll-snap-type: x mandatory;
+  overflow-x: scroll;
+  display: flex;
+}
+
+html,
+body {
+  background-color: #ebebe4;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+body > section {
+  /* slides with full width */
+  width: 100vw;
+  flex-shrink: 0;
+  /* Scroll with 1 click */
+  scroll-snap-align: start;
+  box-sizing: border-box;
+  /* slide inner style */
+  padding: 3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  font-size: var(--title-size);
+  color: #c10000;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h1 > img {
+  /* Custom Emojis */
+  max-width: 6vh;
+}
+
+blockquote {
+  width: 40vw;
+  font-style: italic;
+  color: #808080;
+  margin: 0.1em 0;
+  padding-left: 1em;
+  border-radius: 20px;
+  border-left: 0.3em #bababa solid;
+}
+
+img {
+  margin: 0;
+  max-height: 50vh;
+}
+
+p {
+  margin: 0;
+}
+
+p > img {
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  padding: 0.1em; /*  Espaçar elementos entre si */
+  max-width: 50vw;
+}
