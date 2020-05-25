@@ -1,8 +1,8 @@
-%.html : %.md
-	$(eval CSS := $(subst .md,.css,$<))
-	$(eval TMP := $(addprefix temp,$@))
-	pandoc -s $< --css $(CSS) -o $(TMP) --section-divs --quiet
-	echo "<style>`cat $(CSS)`</style>`cat $(TMP)`" >> $@
-	rm $(TMP)
+sources := $(wildcard src/*.md)
+objects := $(sources:src/%.md=%.html)
 
-deploy: index.html
+%.html : src/%.md
+	$(eval CSS := $(subst src/,style/,$(subst .md,.css,$<)))
+	pandoc -s $< --css $(CSS) -o $@ --section-divs --quiet --self-contained
+
+deploy: $(objects)
