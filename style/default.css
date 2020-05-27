@@ -16,7 +16,7 @@
 
 @media screen and (max-width: 667px) {
   :root {
-    --content-size: 5vw;
+    --content-size: 7vw;
     --title-size: 8vw;
   }
 
