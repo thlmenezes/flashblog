@@ -9,8 +9,6 @@ ifneq (,$(findstring n,$(MAKEFLAGS)))
 READFILE=: READFILE
 endif
 
-include $(deps)
-
 %.html : src/%.md
 	# TODO: Test variation
 	pandoc \
@@ -19,3 +17,4 @@ include $(deps)
 	-o $@ --section-divs --quiet --self-contained
 
 deploy: $(objects)
+include $(deps)
