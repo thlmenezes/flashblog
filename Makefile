@@ -12,8 +12,10 @@ endif
 include $(deps)
 
 %.html : src/%.md
-	${READFILE} $(patsubst src/%.md,deps/%.d, $<) $(deps)
-	$(eval CSS := $(subst src/,style/,$(subst .md,.css,$<)))
-	pandoc -s $< --css $(CSS) -o $@ --section-divs --quiet --self-contained
+	# TODO: Test variation
+	pandoc \
+	-s $< \
+	--css $(patsubst %, style/%.css, $(lastword $(shell ${READFILE} $(patsubst src/%.md,deps/%.d, $<) $(deps)))) \
+	-o $@ --section-divs --quiet --self-contained
 
 deploy: $(objects)
