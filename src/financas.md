@@ -20,7 +20,7 @@ Você investe diariamente 86400
 
 #
 
-![](./financas/bacen.svg)
+![](./assets/financas/bacen.svg)
 
 # 🏦 BACEN
 
@@ -62,7 +62,7 @@ IPCA/[IBGE](https://www.ibge.gov.br/indicadores#ipca): Índice de Preços para o
 
 # 📜 Gustavo Cerbasi (1974)
 
-![*Tirou temas de economia do Olimpo<br/>e compartilhou com a humanidade*](./financas/prometheus.jpg)
+![*Tirou temas de economia do Olimpo<br/>e compartilhou com a humanidade*](./assets/financas/prometheus.jpg)
 
 # 🧠 Mindset Investidor
 
@@ -72,7 +72,7 @@ IPCA/[IBGE](https://www.ibge.gov.br/indicadores#ipca): Índice de Preços para o
 
 #
 
-![](./financas/BM&FBovespa.svg)
+![](./assets/financas/BM&FBovespa.svg)
 
 # 👛 Bolsa de Valores
 
@@ -83,7 +83,7 @@ IPCA/[IBGE](https://www.ibge.gov.br/indicadores#ipca): Índice de Preços para o
 
 #
 
-![](./financas/b3.svg)
+![](./assets/financas/b3.svg)
 
 # 😱 Crise do subprime
 
@@ -111,7 +111,7 @@ IPCA/[IBGE](https://www.ibge.gov.br/indicadores#ipca): Índice de Preços para o
 
 #
 
-![](./financas/stock_emotion_cycle.jpg)
+![](./assets/financas/stock_emotion_cycle.jpg)
 
 # 📔 Teoria das Capas
 
@@ -127,7 +127,7 @@ IPCA/[IBGE](https://www.ibge.gov.br/indicadores#ipca): Índice de Preços para o
 
 # 📋 Planejamento
 
-![*"Sem afobação \[...\] fazer tudo com calma"*](./financas/cap_nascimento.png)
+![*"Sem afobação \[...\] fazer tudo com calma"*](./assets/financas/cap_nascimento.png)
 
 # ✒️ Orçamento
 
@@ -274,11 +274,11 @@ Fonte [fgc.org.br](https://www.fgc.org.br/home)
 
 # Taxa Referencial
 
-![Fonte [BACEN-SGS](https://www3.bcb.gov.br/sgspub/localizarseries/localizarSeries.do?method=prepararTelaLocalizarSeries)](./financas/taxa_referencial.png)
+![Fonte [BACEN-SGS](https://www3.bcb.gov.br/sgspub/localizarseries/localizarSeries.do?method=prepararTelaLocalizarSeries)](./assets/financas/taxa_referencial.png)
 
 # SELIC vs Poupança
 
-![Fonte [BACEN-SGS](https://www3.bcb.gov.br/sgspub/localizarseries/localizarSeries.do?method=prepararTelaLocalizarSeries), Calcule em [Nuconta](https://nubank.com.br/conta)](./financas/selic_poupanca.png)
+![Fonte [BACEN-SGS](https://www3.bcb.gov.br/sgspub/localizarseries/localizarSeries.do?method=prepararTelaLocalizarSeries), Calcule em [Nuconta](https://nubank.com.br/conta)](./assets/financas/selic_poupanca.png)
 
 # 🏦💸🏦 CDI
 
@@ -317,7 +317,7 @@ Por lei, bancos precisam zerar posições no fim do dia<br/>BACEN usando S.E.L.I
 
 # 🦁 Imposto sobre Operações Financeiras
 
-![](./financas/iof_tempo.svg)
+![](./assets/financas/iof_tempo.svg)
 
 # 🗞️ Certificado de Depósito Bancário
 
