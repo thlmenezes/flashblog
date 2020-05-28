@@ -7,9 +7,13 @@ deps    := $(wildcard $(DEPEND_DIR)/*.d)
 READFILE=sh -c '\
 	if [[ $$2 != "" ]]; then head -1 $$1; else echo $(STYLES_DIR)/default.css; fi;\
 	' READFILE
+TEMPLATE=sh -c '\
+	echo $$1.html : $(SOURCE_DIR)/$$1.md $(STYLES_DIR)/default.css;\
+	' TEMPLATE
 
 ifneq (,$(findstring n,$(MAKEFLAGS)))
 READFILE=: READFILE
+TEMPLATE=: TEMPLATE
 endif
 
 define __find_css # return css path from file || default style
