@@ -65,14 +65,25 @@ help:
 # foreach dir in $2 { $1.contains dir ? '' : dir }
 not-containing = $(foreach dir,$2,$(if $(findstring $(dir),$1),,$(dir)))
 
+define __no_deps_list
+	$(call not-containing, $(deps), $(sources:$(SOURCE_DIR)/%.md=$(DEPEND_DIR)/%.d))
+endef
+
+define find_deps
+	$(patsubst $(DEPEND_DIR)/%.d, %, $(call __no_deps_list))
+endef
+
 $(DEPEND_DIR)/default.d: $(sources)
-	$(eval FILES := $(patsubst $(DEPEND_DIR)/%.d, %, $(call not-containing, $(deps), $(sources:$(SOURCE_DIR)/%.md=$(DEPEND_DIR)/%.d))))
-	$(if $(FILES), $(foreach file, $(FILES),$(file >> $(DEPEND_DIR)/default.d,$(subst $(file),$(file).html : $(SOURCE_DIR)/$(file).md $(STYLES_DIR)/default.css,$(file)))))
+	$(eval FILES := $(call find_deps))
+	$(if $(FILES),\
+	$(foreach file, $(FILES),\
+	$(file >>$(DEPEND_DIR)/default.d,$(shell ${TEMPLATE} $(file)))))
 
 dependencies:
-	$(eval FILES := $(patsubst $(DEPEND_DIR)/%.d, %, $(call not-containing, $(deps), $(sources:$(SOURCE_DIR)/%.md=$(DEPEND_DIR)/%.d))))
-	@echo "touching files..."
-	$(if $(FILES), $(foreach file, $(FILES),$(file > $(DEPEND_DIR)/$(file).d,$(subst $(file),$(file).html : $(SOURCE_DIR)/$(file).md $(STYLES_DIR)/default.css,$(file)))))
+	$(eval FILES := $(call find_deps))
+	@echo -n -e $(if $(FILES),\
+	$(foreach file, $(FILES),\
+	$(file >$(DEPEND_DIR)/$(file).d,$(shell ${TEMPLATE} $(file)))), "already up-to-date\n")
 
 -include $(deps)
 # '-' => won't generate an error if the include file doesn't exist.
