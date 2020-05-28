@@ -52,7 +52,7 @@ dependencies:
 	$(eval FILES := $(call find_deps))
 	@echo -n -e $(if $(FILES),\
 	$(foreach file, $(FILES),\
-	$(file >$(DEPEND_DIR)/$(file).d,$(shell ${TEMPLATE} $(file)))), "already up-to-date\n")
+	$(file >$(DEPEND_DIR)/$(file).d,$(shell ${TEMPLATE} $(file)))), "Already up to date.\n")
 
 help:
 	$(eval LCYAN := \033[1;36m)
