@@ -5,19 +5,19 @@ sources := $(wildcard $(SOURCE_DIR)*.md)
 objects := $(sources:$(SOURCE_DIR)%.md=%.html)
 deps    := $(wildcard $(DEPEND_DIR)*.d)
 READFILE=sh -c '\
-	if [[ $$2 != "" ]]; then head -1 $$1; else echo default; fi;\
+	if [[ $$2 != "" ]]; then head -1 $$1; else echo $(STYLES_DIR)default.css; fi;\
 	' READFILE
 
 ifneq (,$(findstring n,$(MAKEFLAGS)))
 READFILE=: READFILE
 endif
 
-define __find_css # return css filename
+define __find_css # return css path from file || default style
 	$(lastword $(shell ${READFILE} $(1) $(findstring $(1), $(deps))))
 endef
 
-define find_style # return css path
-	$(patsubst %, $(STYLES_DIR)%.css, $(call __find_css, $(patsubst $(SOURCE_DIR)%.md,$(DEPEND_DIR)%.d, $(1))))
+define find_style # search dependency files for css path
+	$(call __find_css, $(patsubst $(SOURCE_DIR)%.md,$(DEPEND_DIR)%.d, $(1)))
 endef
 
 all: $(objects)
