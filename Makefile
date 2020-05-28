@@ -29,8 +29,28 @@ build: $(objects) $(DEPEND_DIR)/default.d
 %.html : $(SOURCE_DIR)/%.md
 	pandoc -s $< --css$(call find_style, $<) -o $@ --section-divs --quiet --self-contained
 
-clean:
-	@rm *.html $(DEPEND_DIR)/default.d
+# foreach dir in $2 { $1.contains dir ? '' : dir }
+not-containing = $(foreach dir,$2,$(if $(findstring $(dir),$1),,$(dir)))
+
+define __no_deps_list
+	$(call not-containing, $(deps), $(sources:$(SOURCE_DIR)/%.md=$(DEPEND_DIR)/%.d))
+endef
+
+define find_deps
+	$(patsubst $(DEPEND_DIR)/%.d, %, $(call __no_deps_list))
+endef
+
+$(DEPEND_DIR)/default.d: $(sources)
+	$(eval FILES := $(call find_deps))
+	$(if $(FILES),\
+	$(foreach file, $(FILES),\
+	$(file >>$(DEPEND_DIR)/default.d,$(shell ${TEMPLATE} $(file)))))
+
+dependencies:
+	$(eval FILES := $(call find_deps))
+	@echo -n -e $(if $(FILES),\
+	$(foreach file, $(FILES),\
+	$(file >$(DEPEND_DIR)/$(file).d,$(shell ${TEMPLATE} $(file)))), "already up-to-date\n")
 
 help:
 	$(eval LCYAN := \033[1;36m)
@@ -62,28 +82,8 @@ help:
 	Written by Thales Menezes (@thaleslim)\
 	"
 
-# foreach dir in $2 { $1.contains dir ? '' : dir }
-not-containing = $(foreach dir,$2,$(if $(findstring $(dir),$1),,$(dir)))
-
-define __no_deps_list
-	$(call not-containing, $(deps), $(sources:$(SOURCE_DIR)/%.md=$(DEPEND_DIR)/%.d))
-endef
-
-define find_deps
-	$(patsubst $(DEPEND_DIR)/%.d, %, $(call __no_deps_list))
-endef
-
-$(DEPEND_DIR)/default.d: $(sources)
-	$(eval FILES := $(call find_deps))
-	$(if $(FILES),\
-	$(foreach file, $(FILES),\
-	$(file >>$(DEPEND_DIR)/default.d,$(shell ${TEMPLATE} $(file)))))
-
-dependencies:
-	$(eval FILES := $(call find_deps))
-	@echo -n -e $(if $(FILES),\
-	$(foreach file, $(FILES),\
-	$(file >$(DEPEND_DIR)/$(file).d,$(shell ${TEMPLATE} $(file)))), "already up-to-date\n")
+clean:
+	@rm *.html $(DEPEND_DIR)/default.d
 
 -include $(deps)
 # '-' => won't generate an error if the include file doesn't exist.
