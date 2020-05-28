@@ -9,14 +9,20 @@ ifneq (,$(findstring n,$(MAKEFLAGS)))
 READFILE=: READFILE
 endif
 
+define __find_css # return css filename
+	$(lastword $(shell ${READFILE} $(1) $(findstring $(1), $(deps))))
+endef
+
+define find_style # return css path
+	$(patsubst %, style/%.css, $(call __find_css, $(patsubst src/%.md,deps/%.d, $(1))))
+endef
+
 all: $(objects)
 
 %.html : src/%.md
-	pandoc -s $< \
-	--css $(patsubst %, style/%.css, $(lastword $(shell ${READFILE} $(patsubst src/%.md,deps/%.d, $<) $(findstring $(patsubst src/%.md,deps/%.d, $<),$(deps))))) \
-	-o $@ --section-divs --quiet --self-contained
+	pandoc -s $< --css$(call find_style, $<) -o $@ --section-divs --quiet --self-contained
 
-hardreset :
+clean :
 	rm *.html
 
 -include $(deps)
