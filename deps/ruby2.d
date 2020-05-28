@@ -1,3 +1,3 @@
 # STYLE_FILE: ruby
 
-rubyy.html : src/rubyy.md style/ruby.css
+ruby2.html : src/ruby2.md style/ruby.css
