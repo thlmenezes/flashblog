@@ -21,3 +21,7 @@ This project depends on:
   ```shell
     make help # for instructions
   ```
+
+## Acknowledgments
+  - 🎩 @brennop
+     - The man behind the simplest idea for creating slides, [source](brn.wtf/slides), and the inspiration behind this automation project
