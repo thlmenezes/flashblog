@@ -20,15 +20,15 @@ define find_style # search dependency files for css path
 	$(call __find_css, $(patsubst $(SOURCE_DIR)/%.md,$(DEPEND_DIR)/%.d, $(1)))
 endef
 
-all: $(objects)
+build: $(objects)
 
 %.html : $(SOURCE_DIR)/%.md
 	pandoc -s $< --css$(call find_style, $<) -o $@ --section-divs --quiet --self-contained
 
-clean :
-	rm *.html
+clean:
+	@rm *.html
 
-help :
+help:
 	#TODO: "write something here"
 
 #TODO: method to generate default dependency files
