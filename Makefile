@@ -35,3 +35,4 @@ help :
 #TODO: generate .d including all the .md that DON'T already have one 
 
 -include $(deps)
+# '-' => won't generate an error if the include file doesn't exist.
