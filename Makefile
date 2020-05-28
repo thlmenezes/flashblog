@@ -1,6 +1,9 @@
-sources := $(wildcard src/*.md)
-objects := $(sources:src/%.md=%.html)
-deps    := $(wildcard deps/*.d)
+SOURCE_DIR := src/
+DEPEND_DIR := deps/
+STYLES_DIR := style/
+sources := $(wildcard $(SOURCE_DIR)*.md)
+objects := $(sources:$(SOURCE_DIR)%.md=%.html)
+deps    := $(wildcard $(DEPEND_DIR)*.d)
 READFILE=sh -c '\
 	if [[ $$2 != "" ]]; then head -1 $$1; else echo default; fi;\
 	' READFILE
@@ -14,12 +17,12 @@ define __find_css # return css filename
 endef
 
 define find_style # return css path
-	$(patsubst %, style/%.css, $(call __find_css, $(patsubst src/%.md,deps/%.d, $(1))))
+	$(patsubst %, $(STYLES_DIR)%.css, $(call __find_css, $(patsubst $(SOURCE_DIR)%.md,$(DEPEND_DIR)%.d, $(1))))
 endef
 
 all: $(objects)
 
-%.html : src/%.md
+%.html : $(SOURCE_DIR)%.md
 	pandoc -s $< --css$(call find_style, $<) -o $@ --section-divs --quiet --self-contained
 
 clean :
