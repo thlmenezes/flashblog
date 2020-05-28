@@ -27,7 +27,9 @@ endef
 build: $(objects) $(DEPEND_DIR)/default.d
 
 %.html : $(SOURCE_DIR)/%.md
-	pandoc -s $< --css$(call find_style, $<) -o $@ --section-divs --quiet --self-contained
+	$(eval CSS := $(call find_style, $<))
+	@printf '%-15s\t%-15s\n' 'FILE = $(basename $(notdir $<))' 'STYLE = $(notdir $(CSS))'
+	@pandoc -s $< --css $(CSS) -o $@ --section-divs --quiet --self-contained
 
 # foreach dir in $2 { $1.contains dir ? '' : dir }
 not-containing = $(foreach dir,$2,$(if $(findstring $(dir),$1),,$(dir)))
