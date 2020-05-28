@@ -1,11 +1,11 @@
-SOURCE_DIR := src/
-DEPEND_DIR := deps/
-STYLES_DIR := style/
-sources := $(wildcard $(SOURCE_DIR)*.md)
-objects := $(sources:$(SOURCE_DIR)%.md=%.html)
-deps    := $(wildcard $(DEPEND_DIR)*.d)
+SOURCE_DIR := src
+DEPEND_DIR := deps
+STYLES_DIR := style
+sources := $(wildcard $(SOURCE_DIR)/*.md)
+objects := $(sources:$(SOURCE_DIR)/%.md=%.html)
+deps    := $(wildcard $(DEPEND_DIR)/*.d)
 READFILE=sh -c '\
-	if [[ $$2 != "" ]]; then head -1 $$1; else echo $(STYLES_DIR)default.css; fi;\
+	if [[ $$2 != "" ]]; then head -1 $$1; else echo $(STYLES_DIR)/default.css; fi;\
 	' READFILE
 
 ifneq (,$(findstring n,$(MAKEFLAGS)))
@@ -17,12 +17,12 @@ define __find_css # return css path from file || default style
 endef
 
 define find_style # search dependency files for css path
-	$(call __find_css, $(patsubst $(SOURCE_DIR)%.md,$(DEPEND_DIR)%.d, $(1)))
+	$(call __find_css, $(patsubst $(SOURCE_DIR)/%.md,$(DEPEND_DIR)/%.d, $(1)))
 endef
 
 all: $(objects)
 
-%.html : $(SOURCE_DIR)%.md
+%.html : $(SOURCE_DIR)/%.md
 	pandoc -s $< --css$(call find_style, $<) -o $@ --section-divs --quiet --self-contained
 
 clean :
