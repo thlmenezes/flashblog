@@ -8,7 +8,7 @@
 
 ## Description
 
-A template slide generation model from markdown
+Automation template for slide generation model from markdown
 
 ## Dependencies
 
@@ -23,5 +23,5 @@ This project depends on:
   ```
 
 ## Acknowledgments
-  - 🎩 @brennop
-     - The man behind the simplest idea for creating slides, [source](brn.wtf/slides), and the inspiration behind this automation project
+  - 🎩 [@brennop](https://github.com/brennop)
+     - The man behind the simplest idea for creating slides, [source](https://brn.wtf/slides), and the inspiration behind this automation project
