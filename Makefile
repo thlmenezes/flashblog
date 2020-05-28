@@ -28,4 +28,7 @@ all: $(objects)
 clean :
 	rm *.html
 
+#TODO: method to generate default dependency files
+#TODO: generate .d including all the .md that DON'T already have one 
+
 -include $(deps)
