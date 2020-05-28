@@ -29,7 +29,34 @@ clean:
 	@rm *.html $(DEPEND_DIR)/default.d
 
 help:
-	#TODO: "write something here"
+	$(eval LCYAN := \033[1;36m)
+	$(eval GREEN := \033[0;32m)
+	$(eval RESET := \033[0m)
+	$(eval BOLD  := $(shell tput bold))
+	$(eval REGU  := $(shell tput sgr0))
+	$(eval TITLE := $(GREEN)$(BOLD))
+	$(eval RET   := $(RESET)$(REG))
+	@echo -e \
+	"$(TITLE)NAME$(RET)\n\t\
+	FlashBlog - slides automation project\n\n\
+	$(TITLE)SYNOPSIS$(RET)\n\t\
+	$(TITLE)make$(RET) [$(LCYAN)build$(RESET)]\n\n\
+	$(TITLE)DESCRIPTION$(RET)\n\t\
+	Compile Markdown to HTML pages a.k.a slides\n\
+	\n\t\
+	$(TITLE)build$(RET)     compile files from SOURCE_DIR to html\n\
+	\n\t\
+	$(TITLE)dependencies$(RET)\n\
+	\t          generate dependency files to all sources that $(BOLD)don't$(REGU) already have\n\
+	\n\t\
+	$(TITLE)clean$(RET)     removes all compiled files (*.html DEPEND_DIR/default.d)\n\n\
+	$(TITLE)VARIABLES$(RET)\n\t\
+	SOURCE_DIR := $(SOURCE_DIR)\n\t\
+	DEPEND_DIR := $(DEPEND_DIR)\n\t\
+	STYLES_DIR := $(STYLES_DIR)\n\n\
+	$(TITLE)AUTHOR$(RET)\n\t\
+	Written by Thales Menezes (@thaleslim)\
+	"
 
 # foreach dir in $2 { $1.contains dir ? '' : dir }
 not-containing = $(foreach dir,$2,$(if $(findstring $(dir),$1),,$(dir)))
@@ -38,8 +65,6 @@ $(DEPEND_DIR)/default.d: $(sources)
 	$(eval FILES := $(patsubst $(DEPEND_DIR)/%.d, %, $(call not-containing, $(deps), $(sources:$(SOURCE_DIR)/%.md=$(DEPEND_DIR)/%.d))))
 	$(if $(FILES), $(foreach file, $(FILES),$(file >> $(DEPEND_DIR)/default.d,$(subst $(file),$(file).html : $(SOURCE_DIR)/$(file).md $(STYLES_DIR)/default.css,$(file)))))
 
-# generates dependency files to
-# all sources that DON'T have
 dependencies:
 	$(eval FILES := $(patsubst $(DEPEND_DIR)/%.d, %, $(call not-containing, $(deps), $(sources:$(SOURCE_DIR)/%.md=$(DEPEND_DIR)/%.d))))
 	@echo "touching files..."
