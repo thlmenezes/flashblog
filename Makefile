@@ -42,7 +42,7 @@ define find_deps
 	$(patsubst $(DEPEND_DIR)/%.d, %, $(call __no_deps_list))
 endef
 
-$(DEPEND_DIR)/default.d: $(sources)
+$(DEPEND_DIR)/default.d:
 	$(eval FILES := $(call find_deps))
 	$(if $(FILES),\
 	$(foreach file, $(FILES),\
