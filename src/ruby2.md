@@ -1,6 +1,6 @@
 # ![](https://cdn.emojidex.com/emoji/px64/Ruby.png?1465787635) Ruby
 
-# Hash
+# # Hash
 
 ```ruby
 # { Chave R Valor }
@@ -10,7 +10,7 @@ aluno[:nome] # O(1)
 # => 'Thales'
 ```
 
-# Dados
+# 🎲 Dados
 
 ```ruby
 aluno[:departamento] = 'CIC'
@@ -28,27 +28,27 @@ aluno.values
 aluno.keys
 # => [:nome, :cpf]
 aluno.each {|a| puts a}
-# nome
-# Thales
-# cpf
-# 101010
 ```
 
-# Default
+[each](https://docs.ruby-lang.org/en/2.6.0/Hash.html#method-i-each)
+
+# 💾 Default
 
 ```ruby
-dicio = {}
-dicio['Zigfrido']
+aluno['Zigfrido']
 # => nil
-dicio.default = 'jojo'
-dicio['Godofreda']
+aluno.default = 'jojo'
+aluno['Godofreda']
 # => 'jojo'
+```
+
+# 👷🚧 Construtor
+
+```ruby
 dicio = Hash.new {0}
 dicio['Epaminondas']
 # => 0
 ```
-
-- [Leia mais](https://docs.ruby-lang.org/en/2.6.0/Hash.html#method-i-each)
 
 # 🧱 Funções
 
@@ -59,7 +59,7 @@ def nome! (argumentos,a2,a3)
 end
 ```
 
-# Lambda
+# λ Lambda
 
 ```ruby
 succ = lambda { |x| x + 1 }
@@ -81,7 +81,7 @@ Dash Rocket succ = ->(x){ x+1 }
 - Procedural
   - Variáveis e Funções
 
-# Encapsulamento
+# 🪆 Encapsulamento
 
 ```
 Objetos
@@ -89,22 +89,35 @@ Objetos
 └─     Funções   ~> Métodos
 ```
 
-# Abstração
+# ⚛️ Abstração
 
 Usar algo sem entender como funciona<br/>Na prática, a dependência diminui
 
-# User
+# 👤 User
 
 ```ruby
 class User
   @@user_count = 0
-  def initialize name = "" # construtor
-      @username = name
-      # variáveis de instância
-      @@user_count += 1
-      # variáveis de classe
+  def initialize name = ""
+      # construtor        variáveis
+      @username = name  # ├─ instância
+      @@user_count += 1 # └─ classe
   end
-  
+```
+
+# 
+
+```ruby
+#[...]
+  def self.count
+    @@user_count
+  end
+```
+
+# 
+
+```ruby
+#[...]
   def get_name 
     @username
   end
@@ -112,14 +125,24 @@ class User
   def set_name! name
     @username = name
   end
-  
-  def self.count
-    @@user_count
-  end
-end
 ```
 
-# Herança
+#
+
+```ruby
+#[...] Getter & Setter
+  def username # <User>.username
+    @username
+  end
+  # <User>.username = "novo nome"
+  def username=(name)
+    @username = name
+  end
+```
+
+[attr_writer :var](https://docs.ruby-lang.org/en/2.6.0/Module.html#method-i-attr_writer), [attr_reader :var](https://docs.ruby-lang.org/en/2.6.0/Module.html#method-i-attr_reader) e [attr_accessor :var](https://docs.ruby-lang.org/en/2.6.0/Module.html#method-i-attr_accessor)
+
+# 👨‍👦 Herança
 
 Encapsular código repetido entre objetos
 
@@ -133,32 +156,6 @@ class Administrator < User
 end
 ```
 
-# Getter & Setter
+# ☺️ Obrigado
 
-```ruby
-class User
-  @@user_count = 0
-  def initialize name = "" # construtor
-      @username = name
-      # variáveis de instância
-      @@user_count += 1
-      # variáveis de classe
-  end
-  # permite usar .username
-  def username 
-    @username
-  end
-  
-  def username=(name)
-    @username = name
-  end
-  
-  def self.count
-    @@user_count
-  end
-end
-```
-
-- [attr_writer :var](https://docs.ruby-lang.org/en/2.6.0/Module.html#method-i-attr_writer), [attr_reader :var](https://docs.ruby-lang.org/en/2.6.0/Module.html#method-i-attr_reader) e [attr_accessor :var](https://docs.ruby-lang.org/en/2.6.0/Module.html#method-i-attr_accessor)
-
-# Obrigado
+![](https://media.giphy.com/media/3o6Zt6KHxJTbXCnSvu/giphy.gif)
