@@ -1,6 +1,7 @@
 SOURCE_DIR := src
 DEPEND_DIR := deps
 STYLES_DIR := style
+CONTAINED  :=
 sources := $(wildcard $(SOURCE_DIR)/*.md)
 objects := $(sources:$(SOURCE_DIR)/%.md=%.html)
 deps    := $(wildcard $(DEPEND_DIR)/*.d)
@@ -29,7 +30,7 @@ build: $(objects) $(DEPEND_DIR)/default.d
 %.html : $(SOURCE_DIR)/%.md
 	$(eval CSS := $(call find_style, $<))
 	@printf '%-15s\t%-15s\n' 'FILE = $(basename $(notdir $<))' 'STYLE = $(notdir $(CSS))'
-	@pandoc -s $< --css $(CSS) -o $@ --section-divs --quiet --self-contained
+	@pandoc -s $< --css $(CSS) -o $@ --section-divs --quiet $(if $(CONTAINED), --self-contained)
 
 # foreach dir in $2 { $1.contains dir ? '' : dir }
 not-containing = $(foreach dir,$2,$(if $(findstring $(dir),$1),,$(dir)))
