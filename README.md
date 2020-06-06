@@ -5,6 +5,8 @@
 - [Description](#description)
 - [Dependencies](#dependencies)
 - [Help](#help)
+- [Troubleshooting](#troubleshooting)
+- [Acknowledgments](#acknowledgments)
 
 ## Description
 
@@ -22,7 +24,7 @@ This project depends on:
     make help # for instructions
   ```
 
-## TROUBLESHOOTING
+## Troubleshooting
 
 - Pandoc error fetching fonts, connection timeout
 
