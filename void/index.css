@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background-color: #23272a;
+}
+
+main {
+  height: 80vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
