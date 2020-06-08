@@ -70,3 +70,9 @@
 # TODO: escrever páginas auxiliares a esse tutorial
 
 - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre
+
+# TODO videos:
+
+- https://youtu.be/nINwts8XvYY
+- https://youtu.be/84oS20rZSt0
+- https://youtu.be/hvgxn8v--8Q
