@@ -12,6 +12,68 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <style type="text/css">
 @font-face {
@@ -141,7 +203,12 @@ max-width: 50vw;
 <h1>Container</h1>
 <ul>
 <li>Container = app + dependências</li>
-<li>Docker é o SO do app</li>
+<li>Docker é o SO do app*
+<ul>
+<li>Linux != Windows != MacOS</li>
+<li>Docker não faz milagres, container Windows em ambiente linux não funciona</li>
+<li>Docker está monitorando processos PID no SO, se não rodaria antes docker can’t save you</li>
+</ul></li>
 <li>Modularização à nível de SO
 <ul>
 <li><em>Separation of Concerns</em>, da Engenharia de Software</li>
@@ -156,11 +223,160 @@ max-width: 50vw;
 <section id="vantagens" class="level1">
 <h1>Vantagens</h1>
 <ul>
-<li>Deploy</li>
+<li>Deploy Heroku</li>
 <li>Segurança</li>
 <li>Praticidade</li>
 <li>Multiplataforma</li>
 </ul>
+</section>
+<section id="emojiflex-exercitar" class="level1">
+<h1>EMOJIFLEX Exercitar</h1>
+<ul>
+<li><p><a href="https://www.docker.com/play-with-docker">Playground</a></p>
+<pre class="shell"><code># no sudo docker
+sudo usermod -aG docker $USER
+# reload group
+newgrp docker
+# docker load container
+docker run -dp 80:80 docker/getting-started
+# list containers
+docker ps
+# open on browser
+xdg-open http://localhost:80</code></pre></li>
+<li><p><a href="https://docs.docker.com/">Documentação</a></p></li>
+<li><p>Projetos Pessoais</p></li>
+</ul>
+</section>
+<section id="todo-deploy-heroku" class="level1">
+<h1>TODO Deploy Heroku</h1>
+<ul>
+<li><p>https://devcenter.heroku.com/categories/deploying-with-docker</p></li>
+<li><p>https://youtu.be/7JBDgeyChfc</p></li>
+</ul>
+<p>https://medium.com/better-programming/how-to-containerize-and-deploy-apps-with-docker-and-heroku-b1c49e5bc070</p>
+</section>
+<section id="notes" class="level1">
+<h1>Notes</h1>
+<ul>
+<li>Compatibilidade com OS deixa de ser um problema</li>
+<li>Container vs Image
+<ul>
+<li>Imagem “Classe” Instruções</li>
+<li>Container é a instância</li>
+</ul></li>
+<li>“Funciona no meu computador”</li>
+</ul>
+<p>docker run <image> Cria um container à partir da imagem</p>
+<p>docker ps list all containers currently running</p>
+<p>docker ps -a list all history of containers</p>
+<p>docker stop <container name> stop a container</p>
+<p>docker rm <container name> Delete container, free space</p>
+<p>docker images list images</p>
+<p>docker rmi <image name> !CAUTION: delete all dependent containers to remove a image</p>
+<p>docker pull <image></p>
+<p>docker run arch sleep 5</p>
+<p>docker exec <container name> <comand></p>
+<p>docker run -d <image> detach from terminal, run in background</p>
+<p>docker attach <container name>|<id> access terminal inside container</p>
+<p>docker run redis:4.0 see docker hub for more tags</p>
+<p>docker run -it <image>|<container> <strong>i</strong>nteractive <strong>t</strong>erminal, can be use separately</p>
+<p>docker run -p <local>:<container> <image>|<container> connect ports</p>
+<p>docker run -v <local>:<container> <em>image</em> Volume Mapping</p>
+<p>docker inspect <container> analyse container config</p>
+<p>docker logs <container></p>
+<p>docker run -e VAR=blue <container> environment variables</p>
+</section>
+<section id="todo-dockerfile" class="level1">
+<h1>TODO Dockerfile</h1>
+<p>Passo a passo usando o shell</p>
+<p>docker build Dockerfile -t <container name></p>
+<p>Dockerfile:</p>
+<ul>
+<li>Começa com FROM <image></li>
+<li>Instala dependências</li>
+<li>Copia arquivos</li>
+<li>?? ENTRYPPOINT
+<ul>
+<li>docker run == ENTRYPOINT run</li>
+<li>Se eu quiser mais de um comando?</li>
+</ul></li>
+</ul>
+</section>
+<section id="entrypoint-ou-cmd" class="level1">
+<h1>ENTRYPOINT ou CMD</h1>
+<p>docker run ubuntu-sleeper sleep 10</p>
+<p>CMD sleep 5 # tudo ou nada</p>
+<p>docker run ubuntu-sleeper 10</p>
+<p>ENTRYPOINT [“sleep”] # CLI command is appended</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode dockerfile"><code class="sourceCode dockerfile"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">FROM</span> Ubuntu</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="kw">ENTRYPOINT</span> [<span class="st">&quot;sleep&quot;</span>]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="kw">CMD</span> [<span class="st">&quot;5&quot;</span>]</span></code></pre></div>
+<p>docker run –entrypoint sleep2.0 ubuntu-sleeper 10 rewrites entrypoint</p>
+</section>
+<section id="networking" class="level1">
+<h1>Networking</h1>
+<p>docker run Ubuntu Bridge -&gt; “Playground”: isolados, mas tudo na mesma caixa</p>
+<p>docker run Ubuntu –network=host host -&gt; localhost: “equivalente” a instalar na minha máquina (para fins de rede)</p>
+<p>docker run Ubuntu –network=none none -&gt; isolado</p>
+</section>
+<section id="cache-é-vida" class="level1">
+<h1>Cache é vida</h1>
+<p>Docker aproveita muito processos anteriores Dividindo o processo de construção em camadas Camadas quase como “commits”</p>
+</section>
+<section id="todo-docker-run-mount" class="level1">
+<h1>TODO docker run –mount</h1>
+</section>
+<section id="athena-api" class="level1">
+<h1><a href="https://github.com/yuriserka/athena#readme">Athena</a> API</h1>
+<div class="sourceCode" id="cb3"><pre class="sourceCode dockerfile"><code class="sourceCode dockerfile"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">FROM</span> node:12.13</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="kw">RUN</span> mkdir /app</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="kw">WORKDIR</span> /app <span class="co"># container -&gt; cd /app</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="co">#COPY &lt;dir&gt; &lt;docker_dir&gt;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a><span class="kw">COPY</span> . .</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a><span class="kw">RUN</span> yarn install</span></code></pre></div>
+</section>
+<section id="athena-compose" class="level1">
+<h1>Athena Compose</h1>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;3&quot;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="fu">services</span><span class="kw">:</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a><span class="at">  </span><span class="fu">back</span><span class="kw">:</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a><span class="at">    </span><span class="fu">build</span><span class="kw">:</span><span class="at"> ./api</span><span class="co"> # path to Dockerfile</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a><span class="at">    </span><span class="fu">command</span><span class="kw">:</span><span class="at"> bash start.sh</span><span class="co"> # CMD</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a><span class="at">    </span><span class="fu">ports</span><span class="kw">:</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;8083:8083&quot;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a><span class="at">  </span><span class="fu">front</span><span class="kw">:</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a><span class="at">    </span><span class="fu">depends_on</span><span class="kw">:</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;back&quot;</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true"></a><span class="at">    </span><span class="fu">build</span><span class="kw">:</span><span class="at"> ./front</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true"></a><span class="at">    </span><span class="fu">command</span><span class="kw">:</span><span class="at"> bash start.sh</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true"></a><span class="at">    </span><span class="fu">ports</span><span class="kw">:</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;3000:3000&quot;</span></span></code></pre></div>
+<p>docker-compose up</p>
+</section>
+<section id="docker-compose.yml" class="level1">
+<h1>docker-compose.yml</h1>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;3&quot;</span><span class="co"> # 1, 2 ou 3</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="co"># 1 - Dockerfile mashup</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="co"># 2 - adiciona serviços, dependências e networking, ...</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a><span class="co"># 3 - </span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a><span class="fu">services</span><span class="kw">:</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a><span class="at">    </span><span class="fu">container1</span><span class="kw">:</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a><span class="at">        </span><span class="fu">image</span><span class="kw">:</span><span class="at"> &lt;image&gt;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a><span class="at">        </span><span class="fu">ports</span><span class="kw">:</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a><span class="at">          </span><span class="kw">-</span><span class="at"> &lt;local&gt;:&lt;container&gt;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a><span class="at">    </span><span class="fu">container2</span><span class="kw">:</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a><span class="at">        </span><span class="fu">image</span><span class="kw">:</span><span class="at"> &lt;image&gt;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a><span class="at">        </span><span class="fu">ports</span><span class="kw">:</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true"></a><span class="at">          </span><span class="kw">-</span><span class="at"> &lt;local&gt;:&lt;container&gt;</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true"></a><span class="at">        </span><span class="fu">depends_on</span><span class="kw">:</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true"></a><span class="at">          </span><span class="kw">-</span><span class="at"> container1</span></span></code></pre></div>
+</section>
+<section id="limitando-recursos" class="level1">
+<h1>Limitando Recursos</h1>
+<p>docker run –cpus-.5 ubuntu # 50%</p>
+<p>docker run –memory=100m ubuntu # 100MB</p>
 </section>
 </body>
 </html>
