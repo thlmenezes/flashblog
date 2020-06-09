@@ -23,3 +23,12 @@
       });
   });
 })();
+
+document.querySelector('.options form button').onclick = () => {
+  html2canvas(document.querySelector('.preview')).then((canvas) => {
+    document.querySelector('main').innerHTML += `<a href="${canvas.toDataURL(
+      'image/png'
+    )}" download="class.png" style="display: none">Download</a>`;
+    document.querySelector('main a').click();
+  });
+};
