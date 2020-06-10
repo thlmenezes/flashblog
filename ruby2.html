@@ -189,57 +189,57 @@ max-width: 50vw;
 </section>
 <section id="hash" class="level1">
 <h1># Hash</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># { Chave R Valor }</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>aluno = {<span class="st">nome: &#39;Thales&#39;</span>, <span class="st">cpf: &#39;101010&#39;</span>}</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># =&gt; {:nome =&gt; &#39;Thales&#39;, :cpf =&gt; &#39;101010&#39;}</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>aluno[<span class="st">:nome</span>] <span class="co"># O(1)</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># =&gt; &#39;Thales&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co"># { Chave R Valor }</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>aluno = {<span class="st">nome: &#39;Thales&#39;</span>, <span class="st">cpf: &#39;101010&#39;</span>}</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="co"># =&gt; {:nome =&gt; &#39;Thales&#39;, :cpf =&gt; &#39;101010&#39;}</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>aluno[<span class="st">:nome</span>] <span class="co"># O(1)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="co"># =&gt; &#39;Thales&#39;</span></span></code></pre></div>
 </section>
 <section id="dados" class="level1">
 <h1>🎲 Dados</h1>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>aluno[<span class="st">:departamento</span>] = <span class="st">&#39;CIC&#39;</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>aluno.delete(<span class="st">:departamento</span>)</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="co"># =&gt; &#39;CIC&#39;</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a>aluno[<span class="st">:departamento</span>]</span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co"># =&gt; nil</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>aluno[<span class="st">:departamento</span>] = <span class="st">&#39;CIC&#39;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>aluno.delete(<span class="st">:departamento</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="co"># =&gt; &#39;CIC&#39;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>aluno[<span class="st">:departamento</span>]</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="co"># =&gt; nil</span></span></code></pre></div>
 </section>
 <section id="iterando" class="level1">
 <h1>🦼 Iterando</h1>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>aluno.values</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="co"># =&gt; [&#39;Thales&#39;,&#39;101010&#39;]</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a>aluno.keys</span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># =&gt; [:nome, :cpf]</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a>aluno.each {|a| puts a}</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>aluno.values</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="co"># =&gt; [&#39;Thales&#39;,&#39;101010&#39;]</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>aluno.keys</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="co"># =&gt; [:nome, :cpf]</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>aluno.each {|a| puts a}</span></code></pre></div>
 <p><a href="https://docs.ruby-lang.org/en/2.6.0/Hash.html#method-i-each">each</a></p>
 </section>
 <section id="default" class="level1">
 <h1>💾 Default</h1>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1"></a>aluno[<span class="st">&#39;Zigfrido&#39;</span>]</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># =&gt; nil</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a>aluno.default = <span class="st">&#39;jojo&#39;</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a>aluno[<span class="st">&#39;Godofreda&#39;</span>]</span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="co"># =&gt; &#39;jojo&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>aluno[<span class="st">&#39;Zigfrido&#39;</span>]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="co"># =&gt; nil</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>aluno.default = <span class="st">&#39;jojo&#39;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>aluno[<span class="st">&#39;Godofreda&#39;</span>]</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a><span class="co"># =&gt; &#39;jojo&#39;</span></span></code></pre></div>
 </section>
 <section id="construtor" class="level1">
 <h1>👷🚧 Construtor</h1>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1"></a>dicio = <span class="dt">Hash</span>.new {<span class="dv">0</span>}</span>
-<span id="cb5-2"><a href="#cb5-2"></a>dicio[<span class="st">&#39;Epaminondas&#39;</span>]</span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="co"># =&gt; 0</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>dicio = <span class="dt">Hash</span>.new {<span class="dv">0</span>}</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>dicio[<span class="st">&#39;Epaminondas&#39;</span>]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="co"># =&gt; 0</span></span></code></pre></div>
 </section>
 <section id="funções" class="level1">
 <h1>🧱 Funções</h1>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> nome! (argumentos,a2,a3)</span>
-<span id="cb6-2"><a href="#cb6-2"></a>    <span class="co">#CODE</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a>    <span class="kw">return</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="kw">end</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="kw">def</span> nome! (argumentos,a2,a3)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>    <span class="co">#CODE</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>    <span class="kw">return</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a><span class="kw">end</span></span></code></pre></div>
 </section>
 <section id="λ-lambda" class="level1">
 <h1>λ Lambda</h1>
-<div class="sourceCode" id="cb7"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb7-1"><a href="#cb7-1"></a>succ = lambda { |x| x + <span class="dv">1</span> }</span>
-<span id="cb7-2"><a href="#cb7-2"></a>succ.call(<span class="dv">2</span>)</span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="co"># =&gt; != -&gt;</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="dt">Hash</span> <span class="dt">Rocket</span> {key =&gt; value}</span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="dt">Dash</span> <span class="dt">Rocket</span> succ = -&gt;(x){ x+<span class="dv">1</span> }</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>succ = lambda { |x| x + <span class="dv">1</span> }</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>succ.call(<span class="dv">2</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a><span class="co"># =&gt; != -&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a><span class="dt">Hash</span> <span class="dt">Rocket</span> {key =&gt; value}</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a><span class="dt">Dash</span> <span class="dt">Rocket</span> succ = -&gt;(x){ x+<span class="dv">1</span> }</span></code></pre></div>
 </section>
 <section id="poo" class="level1">
 <h1>🏛️ POO</h1>
@@ -271,42 +271,42 @@ max-width: 50vw;
 </section>
 <section id="user" class="level1">
 <h1>👤 User</h1>
-<div class="sourceCode" id="cb9"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">class</span> <span class="dt">User</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>  <span class="ot">@@user_count</span> = <span class="dv">0</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a>  <span class="kw">def</span> initialize name = <span class="st">&quot;&quot;</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a>      <span class="co"># construtor        variáveis</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a>      <span class="ot">@username</span> = name  <span class="co"># ├─ instância</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a>      <span class="ot">@@user_count</span> += <span class="dv">1</span> <span class="co"># └─ classe</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a>  <span class="kw">end</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="kw">class</span> <span class="dt">User</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>  <span class="ot">@@user_count</span> = <span class="dv">0</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>  <span class="kw">def</span> initialize name = <span class="st">&quot;&quot;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a>      <span class="co"># construtor        variáveis</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a>      <span class="ot">@username</span> = name  <span class="co"># ├─ instância</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a>      <span class="ot">@@user_count</span> += <span class="dv">1</span> <span class="co"># └─ classe</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a>  <span class="kw">end</span></span></code></pre></div>
 </section>
 <section id="section" class="level1">
 <h1></h1>
-<div class="sourceCode" id="cb10"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb10-1"><a href="#cb10-1"></a><span class="co">#[...]</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a>  <span class="kw">def</span> <span class="dv">self</span>.count</span>
-<span id="cb10-3"><a href="#cb10-3"></a>    <span class="ot">@@user_count</span></span>
-<span id="cb10-4"><a href="#cb10-4"></a>  <span class="kw">end</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="co">#[...]</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>  <span class="kw">def</span> <span class="dv">self</span>.count</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>    <span class="ot">@@user_count</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a>  <span class="kw">end</span></span></code></pre></div>
 </section>
 <section id="section-1" class="level1">
 <h1></h1>
-<div class="sourceCode" id="cb11"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">#[...]</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a>  <span class="kw">def</span> get_name </span>
-<span id="cb11-3"><a href="#cb11-3"></a>    <span class="ot">@username</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a>  <span class="kw">end</span></span>
-<span id="cb11-5"><a href="#cb11-5"></a>  </span>
-<span id="cb11-6"><a href="#cb11-6"></a>  <span class="kw">def</span> set_name! name</span>
-<span id="cb11-7"><a href="#cb11-7"></a>    <span class="ot">@username</span> = name</span>
-<span id="cb11-8"><a href="#cb11-8"></a>  <span class="kw">end</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="co">#[...]</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a>  <span class="kw">def</span> get_name </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a>    <span class="ot">@username</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a>  <span class="kw">end</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a>  </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a>  <span class="kw">def</span> set_name! name</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a>    <span class="ot">@username</span> = name</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true"></a>  <span class="kw">end</span></span></code></pre></div>
 </section>
 <section id="section-2" class="level1">
 <h1></h1>
-<div class="sourceCode" id="cb12"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">#[...] Getter &amp; Setter</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>  <span class="kw">def</span> username <span class="co"># &lt;User&gt;.username</span></span>
-<span id="cb12-3"><a href="#cb12-3"></a>    <span class="ot">@username</span></span>
-<span id="cb12-4"><a href="#cb12-4"></a>  <span class="kw">end</span></span>
-<span id="cb12-5"><a href="#cb12-5"></a>  <span class="co"># &lt;User&gt;.username = &quot;novo nome&quot;</span></span>
-<span id="cb12-6"><a href="#cb12-6"></a>  <span class="kw">def</span> username=(name)</span>
-<span id="cb12-7"><a href="#cb12-7"></a>    <span class="ot">@username</span> = name</span>
-<span id="cb12-8"><a href="#cb12-8"></a>  <span class="kw">end</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="co">#[...] Getter &amp; Setter</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a>  <span class="kw">def</span> username <span class="co"># &lt;User&gt;.username</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a>    <span class="ot">@username</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a>  <span class="kw">end</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a>  <span class="co"># &lt;User&gt;.username = &quot;novo nome&quot;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a>  <span class="kw">def</span> username=(name)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true"></a>    <span class="ot">@username</span> = name</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true"></a>  <span class="kw">end</span></span></code></pre></div>
 <p><a href="https://docs.ruby-lang.org/en/2.6.0/Module.html#method-i-attr_writer">attr_writer :var</a>, <a href="https://docs.ruby-lang.org/en/2.6.0/Module.html#method-i-attr_reader">attr_reader :var</a> e <a href="https://docs.ruby-lang.org/en/2.6.0/Module.html#method-i-attr_accessor">attr_accessor :var</a></p>
 </section>
 <section id="herança" class="level1">
@@ -315,11 +315,11 @@ max-width: 50vw;
 </section>
 <section id="administrador" class="level1">
 <h1>🕴️ Administrador</h1>
-<div class="sourceCode" id="cb13"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">class</span> <span class="dt">Administrator</span> &lt; <span class="dt">User</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>    <span class="kw">def</span> infinite</span>
-<span id="cb13-3"><a href="#cb13-3"></a>        <span class="st">&quot;power&quot;</span></span>
-<span id="cb13-4"><a href="#cb13-4"></a>    <span class="kw">end</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a><span class="kw">end</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="kw">class</span> <span class="dt">Administrator</span> &lt; <span class="dt">User</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a>    <span class="kw">def</span> infinite</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a>        <span class="st">&quot;power&quot;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true"></a>    <span class="kw">end</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true"></a><span class="kw">end</span></span></code></pre></div>
 </section>
 <section id="obrigado" class="level1">
 <h1>☺️ Obrigado</h1>

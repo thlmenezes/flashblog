@@ -261,5 +261,3 @@ heroku container:release my_app
 # Extra [Deploy](https://devcenter.heroku.com/articles/container-registry-and-runtime)
 
 # Obrigado
-
-![]()
