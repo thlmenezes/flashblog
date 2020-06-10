@@ -219,7 +219,6 @@ rails s
 FROM ruby:2.7.1
 
 RUN gem install rails
-RUN gem install bundler
 
 RUN rails new api --api
 WORKDIR /api
@@ -230,7 +229,22 @@ RUN rails db:create db:migrate
 CMD rails s
 ```
 
-# Shell
+# Compose
+
+```yaml
+version: "3"
+
+services:
+  api:
+    build: .
+    # importante configurar o listener (-b(ind))
+    command: rails s -p 3000 -b '0.0.0.0'
+    ports:
+      - "3000:3000"
+```
+
+<!--
+#  Shell
 
 ```bash
 curl https://cli-assets.heroku.com/install.sh | sh
@@ -242,8 +256,9 @@ heroku create
 heroku container:push my_app
 heroku container:release my_app
 ```
+-->
 
-# Leia mais [deploy](https://devcenter.heroku.com/articles/container-registry-and-runtime)
+# Extra [Deploy](https://devcenter.heroku.com/articles/container-registry-and-runtime)
 
 # Obrigado
 

@@ -298,29 +298,43 @@
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a><span class="kw">FROM</span> ruby:2.7.1</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a><span class="kw">RUN</span> gem install rails</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a><span class="kw">RUN</span> gem install bundler</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a><span class="kw">RUN</span> rails new api --api</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true"></a><span class="kw">WORKDIR</span> /api</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true"></a></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true"></a><span class="kw">RUN</span> rails g scaffold User name:string email:string</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true"></a><span class="kw">RUN</span> rails db:create db:migrate</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true"></a></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true"></a><span class="kw">CMD</span> rails s</span></code></pre></div>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a><span class="kw">RUN</span> rails new api --api</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a><span class="kw">WORKDIR</span> /api</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true"></a><span class="kw">RUN</span> rails g scaffold User name:string email:string</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true"></a><span class="kw">RUN</span> rails db:create db:migrate</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true"></a><span class="kw">CMD</span> rails s</span></code></pre></div>
 </section>
-<section id="shell" class="level1">
-<h1>Shell</h1>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="ex">curl</span> https://cli-assets.heroku.com/install.sh <span class="kw">|</span> <span class="fu">sh</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a><span class="ex">heroku</span> login</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a><span class="ex">heroku</span> container:login</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a><span class="bu">cd</span> /path/to/repo</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a><span class="ex">heroku</span> create</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a><span class="co">#docker build docker -t rails_app</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true"></a><span class="ex">heroku</span> container:push my_app</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true"></a><span class="ex">heroku</span> container:release my_app</span></code></pre></div>
+<section id="compose-1" class="level1">
+<h1>Compose</h1>
+<div class="sourceCode" id="cb12"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;3&quot;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a><span class="fu">services</span><span class="kw">:</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a><span class="at">  </span><span class="fu">api</span><span class="kw">:</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a><span class="at">    </span><span class="fu">build</span><span class="kw">:</span><span class="at"> .</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a><span class="co">    # importante configurar o listener (-b(ind))</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true"></a><span class="at">    </span><span class="fu">command</span><span class="kw">:</span><span class="at"> rails s -p 3000 -b &#39;0.0.0.0&#39;</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true"></a><span class="at">    </span><span class="fu">ports</span><span class="kw">:</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;3000:3000&quot;</span></span></code></pre></div>
+<!--
+#  Shell
+
+```bash
+curl https://cli-assets.heroku.com/install.sh | sh
+heroku login
+heroku container:login
+cd /path/to/repo
+heroku create
+#docker build docker -t rails_app
+heroku container:push my_app
+heroku container:release my_app
+```
+-->
 </section>
-<section id="leia-mais-deploy" class="level1">
-<h1>Leia mais <a href="https://devcenter.heroku.com/articles/container-registry-and-runtime">deploy</a></h1>
+<section id="extra-deploy" class="level1">
+<h1>Extra <a href="https://devcenter.heroku.com/articles/container-registry-and-runtime">Deploy</a></h1>
 </section>
 <section id="obrigado" class="level1">
 <h1>Obrigado</h1>
