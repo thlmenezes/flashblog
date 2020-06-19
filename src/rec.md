@@ -1,57 +1,63 @@
-# Como gravar?
+# 📖 Era uma vez ...
 
-# Macgyver
+#### Como gravar?
 
-- Como gravar...
+# 🕵️ Macgyver
+
+- 💭 Como gravar...
   - usando o que eu tenho instalado?
   - com algum programa simples?
   - usando algo mais robusto?
 
-# Compartilhar processo
+# 👷 Assistência remota
 
-- Sequência de passos
-  - Vídeo curto (GIF)
-  - ~~Aúdio~~
+- 🗒️ Sequência de passos
+  - 🤏 Vídeo curto (GIF)
+  - 🔇 ~~Aúdio~~
 
-# Windows - [Gravador de passos](https://support.microsoft.com/en-us/help/22878/windows-10-record-steps)
+# 🧓 Windows - [Gravador de passos](https://support.microsoft.com/en-us/help/22878/windows-10-record-steps)
 
-# VLC media player
+# 🥕 VLC media player
 
-- Capturar vídeo, câmera ou tela, por instância
-- Converte arquivos (mkv, mp4, ...)
-- **Unir vídeo e aúdio**
+- 📷 Captura vídeo em mp4
+- 🔄 Converte arquivos [(mkv, mp4, ...)](https://youtu.be/hvgxn8v--8Q)
+- 😔 Contras
+  - 🩹 **Unir vídeo e aúdio**
 
-# TODO: [video VLC](https://youtu.be/qBbGF7kNLKY)
+# 🤔 Como fazer
 
-# [SSR](https://www.maartenbaert.be/simplescreenrecorder/)
+- 💠 Mídia >> Abrir Dispositivo de Captura
+  - 🏁 Modo de Captura
+  - 🏁 Taxa de quadros
+- 💠 Reproduzir ⬇️
+  - 🏁 Converter (Alt + O)
+- 💠 Seleciona o destino da gravação
 
-- Simple Screen Recorder - linux
+# 🍲 Tudo de uma vez
 
-# Casos de uso
+- 🥇 Simple Screen Recorder ([SSR](https://www.maartenbaert.be/simplescreenrecorder/)) - linux
+- 🥈 [vokoscreen](https://linuxecke.volkoh.de/vokoscreen/vokoscreen.html) - multiplataforma
+- 🎖️ Menções honrosas para windows:
+  - 😰 [ShareX](https://getsharex.com/)
+  - 😨 [Captura](https://mathewsachin.github.io/Captura/)
+  - ⚰️ Camtasia, Fraps
 
-- CHECK Compartilhar erros
-- CHECK Gravar outra transmissão
-- QUESTION Gravar uma aula
+# 📝 Casos de uso
 
-# Câmera
+- ✅ Compartilhar erros
+- ✅ Gravar outra transmissão
+- ❓ Gravar videoaulas próprias
 
-- [Windows Story Remix](https://www.techtudo.com.br/tudo-sobre/windows-story-remix.html) (2017)
-  - Windows Movie Maker (2000/2012-2017)
-  - NEGATIVO .mp4
-- [OpenShot](https://www.openshot.org/)
-  - [Documentação](https://www.openshot.org/user-guide/)
-- [DaVinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve/)
-  - NEGATIVO criar conta
-  - NEGATIVO closed source
+# 📹 Edição
 
-# Tudo de uma vez
+- 🤷 [Windows Story Remix](https://www.techtudo.com.br/tudo-sobre/windows-story-remix.html) (2017)
+  - ⚰️ Windows Movie Maker (2000/2012)
+  - 😔 só mp4
+- 🤩 [OpenShot](https://www.openshot.org/user-guide/)
+- 😏 [DaVinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve/)
+  - ☹️ Criar conta e *Closed Source*
 
-- [vokoscreen](https://linuxecke.volkoh.de/vokoscreen/vokoscreen.html) - multiplataforma
-- Menções honrosas para windows:
-  - [ShareX](https://getsharex.com/) - muitas personalizações e ferramentas
-  - [Captura](https://mathewsachin.github.io/Captura/) - risco de corrupções em vídeos longos
-
-# TODO: OBS
+# 🌅 OBS
 
 - *Open Broadcaster Software*
   - Composição de cenas
@@ -59,20 +65,12 @@
   - Projetor (*preview*)
   - Filtros e ajustes
 
-# Dicas
+# 🍀 Dicas
 
 - Notebook não vai ter renderização por GPU*
 - [Discord Chat Overlay](https://streamkit.discord.com/overlay)
 - *Linux Browser* == [OBS Browser Plugin](https://obsproject.com/forum/resources/browser-plugin.115/)
   1. **$HOME**/.config/obs-studio/
-- Use .mkv
+- Use Matroska (.mkv)
 
-# TODO: escrever páginas auxiliares a esse tutorial
-
-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre
-
-# TODO videos:
-
-- https://youtu.be/nINwts8XvYY
-- https://youtu.be/84oS20rZSt0
-- https://youtu.be/hvgxn8v--8Q
+# 🙏🏽 Obrigado
