@@ -87,6 +87,7 @@ blockquote {
 img {
   margin: 0;
   max-height: 50vh;
+  filter: brightness(80%);
 }
 
 p {
