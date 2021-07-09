@@ -24,6 +24,10 @@
     /*Custom Emojis */
     max-width: 4vw;
   }
+  
+  body > section {
+    padding: 0.1vw
+  }
 }
 
 html {
@@ -87,6 +91,7 @@ blockquote {
 img {
   margin: 0;
   max-height: 50vh;
+  max-width: 80vw;
   filter: brightness(80%);
 }
 
